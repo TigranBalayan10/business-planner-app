@@ -1,0 +1,27 @@
+{
+  "name": "business-planner-app",
+  "version": "1.0.0",
+  "description": "Command Line app for business planning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TigranBalayan10/business-planner-app.git"
+  },
+  "keywords": [],
+  "author": "Tigran Balayan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TigranBalayan10/business-planner-app/issues"
+  },
+  "homepage": "https://github.com/TigranBalayan10/business-planner-app#readme",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.1",
+    "mysql2": "^2.3.3"
+  }
+}

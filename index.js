@@ -83,3 +83,94 @@ function showEmployees() {
   );
 }
 
+function addDept() {
+  inquirer
+    .prompt([
+      {
+        name: "add_dept",
+        message: "Add",
+        type: "input",
+      },
+    ])
+    .then((answer) => {
+      const sql = `INSERT INTO departments(name)
+      VALUES ("${answer.add_dept}");`;
+      db.then((conn) => {
+        conn.query(sql).then((rows) => {
+          showDeps();
+        });
+      });
+    });
+}
+
+function addRole() {
+  inquirer
+    .prompt([
+      {
+        name: "title",
+        message: "Enter Job title",
+        type: "input",
+      },
+      {
+        name: "salary",
+        message: "Enter Salary",
+        type: "input",
+      },
+      {
+        name: "dept",
+        message: "Department",
+        type: "input",
+      },
+    ])
+    .then((answer) => {
+      const sql = `INSERT INTO roles(title, salary)
+      VALUES ("${answer.title}", "${answer.salary}");`;
+      db.then((conn) => {
+        conn.query(sql).then((rows) => {
+          showRoles();
+        });
+      }).then(() => {
+        const sql = `INSERT INTO departments(name)
+        VALUES ("${answer.dept}");`;
+        db.then((conn) => {
+          conn.query(sql).then((rows) => {
+            showDeps();
+          });
+        });
+      });
+    });
+}
+
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        name: "first_name",
+        message: "Enter First Name",
+        type: "input",
+      },
+      {
+        name: "last_name",
+        message: "Enter Last Name",
+        type: "input",
+      },
+      {
+        name: "title",
+        message: "Enter Role",
+        type: "input",
+      },
+    ])
+    .then((answer) => {
+      const sql = `INSERT INTO employees (first_name, last_name)
+        VALUES ('${answer.first_name}', '${answer.last_name}');`;
+      db.then((conn) => {
+        conn.query(sql);
+      }).then(() => {
+        const sql = `INSERT INTO roles (title)
+          VALUES ("${answer.title}");`;
+        db.then((conn) => {
+          conn.query(sql).then(console.log("Employees Added to Database"));
+        });
+      });
+    });
+}

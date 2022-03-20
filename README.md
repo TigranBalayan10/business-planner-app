@@ -1,7 +1,8 @@
 # Business Planner
 
-## Demonstration Video
-![Demo Video](./Media/Employee%20tracker.mp4)
+## Demonstration Screenshots
+![Demo Pic](./Media/1.jpg)
+![Demo Pic](./Media/2.jpg)
 
 ## Purpose
 Plan business by managing employees database, with adding, updating and viewing employees and their roles.

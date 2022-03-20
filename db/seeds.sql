@@ -11,8 +11,8 @@ VALUES
 INSERT INTO roles
   (title, salary, department_id)
 VALUES
-  ('Employee', '100000', 1),
-  ('Manager', '92000', 2),
+  ('IT Employee', '100000', 1),
+  ('Manager', '167000', 2),
   ('Development employee', '85000', 3),
   ('Customer Service employee', '65000', 4),
   ('Accounting employee', '78000', 5);
@@ -26,13 +26,13 @@ VALUES
 INSERT INTO employees
   (first_name, last_name, role_id, manager_id)
 VALUES
-  ('Tigran', 'Balayan', 1, 2),
-  ('Alessandro', 'Del Piero', 4, 3),
+  ('Tigran', 'Balayan', 1, 1),
+  ('Alessandro', 'Del Piero', 4, 2),
   ('Nicola', 'Tesla', 3, 2),
-  ('Frank', 'Cowperwood', 5, 3),
+  ('Frank', 'Cowperwood', 5, 1),
   ('Winston', 'Smith', 3, 2),
-  ('Luca', 'Brasi', 4, 3),
-  ('Virgil', 'Sollozzo', 5, 3),
+  ('Luca', 'Brasi', 4, 1),
+  ('Virgil', 'Sollozzo', 5, 1),
   ('Emmanuel', 'Goldstein', 3, 2),
   ('Thomas', 'Anderson', 1, 2);
 

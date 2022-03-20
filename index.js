@@ -74,12 +74,14 @@ function showRoles() {
 }
 
 function showEmployees() {
-  const sql = `SELECT employees.id, employees.first_name, employees.last_name, roles.title, departments.name, roles.salary
+  const sql = `SELECT employees.id, employees.first_name, employees.last_name, roles.title, departments.name AS department, roles.salary, CONCAT(manager_table.first_name, ' ', manager_table.last_name) AS manager
   FROM employees
   LEFT JOIN roles
   ON employees.role_id = roles.id
   LEFT JOIN departments
-  ON roles.department_id = departments.id;`;
+  ON roles.department_id = departments.id
+  LEFT JOIN employees manager_table
+  ON manager_table.id = employees.manager_id;`;
   db.then((conn) => conn.query(sql)).then(([rows, fields]) =>
     console.table(rows)
   );
@@ -120,7 +122,7 @@ function addRole() {
       },
       {
         name: "dept",
-        message: "Department",
+        message: "Enter Department ID",
         type: "input",
       },
     ])
